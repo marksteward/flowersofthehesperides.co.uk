@@ -1,0 +1,56 @@
+<style type='text/css'>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    font: 49px Hesperides;
+    color: #222;
+    line-height: 1.23;
+    margin-top: 0;
+    white-space: nowrap;
+  }
+  h1 .kern-ow { letter-spacing: -0.08em; }
+  h1 .kern-He { letter-spacing: -0.03em; }
+  h1 .kern-es { letter-spacing: -0.005em; }
+  .logo {
+    background: url({{ media_url('images/logo.svg') }});
+    width: 130px;
+    height: 130px;
+    display: inline-block;
+    background-size: cover;
+  }
+  .wf-hesperides-n4-loading h1 { visibility: hidden; }
+  .wf-hesperides-n4-inactive h1 { /* show the text */ }
+
+  @font-face {
+    font-family: Hesperides;
+    font-style: normal;
+    font-weight: 600;
+    src: url({{ media_url('fonts/Hesperides.woff') }}) format(woff);
+  }
+
+  .content { padding: 5ex 5em }
+
+  a, a:visited {
+    color: #b60061;
+  }
+</style>
+
+<!--[if lte IE 9]>
+<style type="text/css">
+  @font-face {
+    font-family: Hesperides;
+    font-style: normal;
+    font-weight: 600;
+    src: url({{ media_url('fonts/Hesperides.eot') }});
+  }
+</style>
+<![endif]-->
+<!--[if lte IE 8]>
+<style type="text/css">
+  .logo {
+    background: no-repeat url({{ media_url('images/logo-130.png') }});
+  }
+</style>
+<![endif]-->
+

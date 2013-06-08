@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="{{ resource.meta.charset }}">
+
+  <title>{% block title %}{{ resource.meta.title }}{% endblock %}</title>
+  <meta name="description" content="{{ resource.meta.description }}">
+
+  {% block css %}
+  {% include 'css.j2' %}
+  {% endblock css %}
+
+  {% block headjs %}
+  <script type="text/javascript">
+    WebFontConfig = {
+      custom: { families: ['Hesperides'] }
+    };
+  </script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+  {% endblock headjs %}
+  {% block endhead %}{% endblock endhead %}
+</head>
+<body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
+  {% block content %}
+
+  <header>
+  {% block header %}
+    <center>
+      <span class="logo"></span>
+      <h1>Fl<span class="kern-ow">o</span>wers of the<br/> <span class="kern-He">H</span><span class="kern-es">e</span>sperid<span class="kern-es">e</span>s</h1>
+    </center>
+  {% endblock %}
+  </header>
+
+  <section class="content">
+  {% filter markdown|typogrify %}
+  {% block main %}
+  {% endblock main %}
+  {% endfilter %}
+  </section>
+
+  <footer>
+  {% block footer %}
+  {%- endblock footer %}
+  </footer>
+
+  {% endblock content %}
+
+  {% block js %}
+  {% endblock js %}
+</body>
+</html>
