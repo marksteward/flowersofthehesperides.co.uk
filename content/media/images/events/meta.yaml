@@ -1,0 +1,14 @@
+thumbnails:
+  - include:
+      - '*/images/events/1.jpg'
+    width: 290
+    height: 300
+  - include:
+      - '*/images/events/2.jpg'
+    width: 400
+    height: 300
+  - include:
+      - '*/images/events/3.jpg'
+    width: 295
+    height: 300
+

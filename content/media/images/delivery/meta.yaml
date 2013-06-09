@@ -1,0 +1,14 @@
+thumbnails:
+  - include:
+      - '*/images/delivery/1.jpg'
+    width: 300
+    height: 220
+  - include:
+      - '*/images/delivery/2.jpg'
+    width: 315
+    height: 220
+  - include:
+      - '*/images/delivery/3.jpg'
+    width: 375
+    height: 220
+

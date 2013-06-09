@@ -1,0 +1,14 @@
+thumbnails:
+  - include:
+      - '*/images/tributes/1.jpg'
+    width: 300
+    height: 205
+  - include:
+      - '*/images/tributes/2.jpg'
+    width: 360
+    height: 205
+  - include:
+      - '*/images/tributes/3.jpg'
+    width: 325
+    height: 205
+

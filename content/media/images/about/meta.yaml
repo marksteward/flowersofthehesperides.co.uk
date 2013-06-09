@@ -1,0 +1,10 @@
+thumbnails:
+  - include:
+      - '*/images/about/1.jpg'
+    width: 860
+    height: 220
+  - include:
+      - '*/images/about/2.png'
+    width: 155
+    height: 205
+
