@@ -8,7 +8,8 @@ serve:
 	env/bin/python env/bin/hyde serve
 
 init:
-	virtualenv env
+	virtualenv -p python2.7 env
+	env/bin/python env/bin/pip install -U distribute
 
 update:
 	env/bin/python env/bin/pip install -r requirements.txt

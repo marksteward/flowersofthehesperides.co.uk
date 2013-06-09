@@ -1,3 +1,13 @@
+On Debian squeeze:
+
+```
+# Get python2.7
+./configure && make && sudo makealtinstall
+sudo apt-get install libjpeg-dev
+```
+
+On all:
+
 ```
 make init
 make update
