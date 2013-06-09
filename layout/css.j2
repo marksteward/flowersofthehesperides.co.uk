@@ -19,13 +19,19 @@
     display: inline-block;
     background-size: cover;
   }
-  .wf-hesperides-n4-loading h1 { visibility: hidden; }
-  .wf-hesperides-n4-inactive h1 { /* show the text */ }
+  .wf-hesperides-n4-loading h1 {
+    visibility: hidden;
+  }
+  .wf-hesperides-n4-inactive h1 {
+    visibility: visible;
+    font-variant: small-caps;
+  }
+  .wf-hesperides-n4-active h1 {
+    visibility: visible;
+  }
 
   @font-face {
     font-family: Hesperides;
-    font-style: normal;
-    font-weight: 600;
     src: url({{ media_url('fonts/Hesperides.woff') }}) format(woff);
   }
 
@@ -40,8 +46,6 @@
 <style type="text/css">
   @font-face {
     font-family: Hesperides;
-    font-style: normal;
-    font-weight: 600;
     src: url({{ media_url('fonts/Hesperides.eot') }});
   }
 </style>
