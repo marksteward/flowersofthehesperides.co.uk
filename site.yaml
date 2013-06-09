@@ -25,4 +25,5 @@ context:
 meta:
     nodemeta: meta.yaml
     created: !!timestamp 2013-06-08 22:50:00
+    charset: utf-8
     author: Mark Steward
