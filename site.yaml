@@ -26,6 +26,8 @@ context:
 thumbnails:
     prefix: s
     crop_type: center
+    options:
+        quality: 95
 
 meta:
     nodemeta: meta.yaml

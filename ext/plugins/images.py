@@ -1,4 +1,7 @@
-from hyde.ext.plugins.images import ImageThumbnailsPlugin
+from hyde.ext.plugins.images import ImageThumbnailsPlugin, thumb_scale_size
+
+import glob
+import os
 
 class FixedImageThumbnailsPlugin(ImageThumbnailsPlugin):
     """
@@ -48,7 +51,7 @@ class FixedImageThumbnailsPlugin(ImageThumbnailsPlugin):
     def __init__(self, site):
         super(FixedImageThumbnailsPlugin, self).__init__(site)
 
-    def thumb(self, resource, width, height, prefix, crop_type, preserve_orientation=False):
+    def thumb(self, resource, width, height, prefix, crop_type, options, preserve_orientation=False):
         """
         Generate a thumbnail for the given image
         """
@@ -94,10 +97,6 @@ class FixedImageThumbnailsPlugin(ImageThumbnailsPlugin):
             im = im.crop((shiftx, shifty, width + shiftx, height + shifty))
             im.load()
 
-        options = dict(optimize=True)
-        if format == "JPEG":
-          options['quality'] = 75
-
         im.save(target.path, **options)
 
     def begin_site(self):
@@ -111,7 +110,9 @@ class FixedImageThumbnailsPlugin(ImageThumbnailsPlugin):
                      "larger": None,
                      "smaller": None,
                      "crop_type": "topleft",
-                     "prefix": 'thumb_'}
+                     "prefix": 'thumb_',
+                     "options": None,
+        }
         if hasattr(config, 'thumbnails'):
             defaults.update(config.thumbnails)
 
@@ -128,6 +129,8 @@ class FixedImageThumbnailsPlugin(ImageThumbnailsPlugin):
                     larger = th.larger if hasattr(th, 'larger') else defaults['larger']
                     smaller = th.smaller if hasattr(th, 'smaller') else defaults['smaller']
                     crop_type = th.crop_type if hasattr(th, 'crop_type') else defaults['crop_type']
+                    options = th.options if hasattr(th, 'options') else defaults['options']
+                    options = options.to_dict() if options else dict(optimize=True)
                     if crop_type not in ["topleft", "center", "bottomright"]:
                         self.logger.error("Unknown crop_type defined for node [%s]" % node)
                         continue
@@ -151,5 +154,5 @@ class FixedImageThumbnailsPlugin(ImageThumbnailsPlugin):
 
                     for resource in node.resources:
                         if match_includes(resource.path):
-                            self.thumb(resource, dim1, dim2, prefix, crop_type, preserve_orientation)
+                            self.thumb(resource, dim1, dim2, prefix, crop_type, options, preserve_orientation)
 
