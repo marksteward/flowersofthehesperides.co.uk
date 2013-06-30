@@ -1,19 +1,24 @@
 <style type='text/css'>
   body {
-    font-family: Arial, sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    overflow-y: scroll;
   }
 
   h1 {
     font: 49px Hesperides;
     color: #222;
     line-height: 1.23;
-    margin-top: 0;
+    margin-top: 80px;
     white-space: nowrap;
+    display: none;
+  }
+  #index h1 {
+    display: block;
   }
   h1 .kern-ow { letter-spacing: -0.08em; }
   h1 .kern-He { letter-spacing: -0.03em; }
   h1 .kern-es { letter-spacing: -0.005em; }
-  .logo {
+  h1 .logo {
     background: url({{ media_url('images/logo.svg') }});
     width: 130px;
     height: 130px;
@@ -36,7 +41,49 @@
     src: url({{ media_url('fonts/Hesperides.woff') }}) format(woff);
   }
 
-  .content { padding: 5ex 5em }
+  .banner-background {
+    background: url({{ media_url('images/delivery/2.jpg') }}) no-repeat center 58%;
+    background-size: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+  #index .banner {
+    display: none;
+  }
+  .banner {
+    background-color: rgba(80, 80, 80, 0.7);
+    padding: 0.9ex 0.8em 0.9ex 0.8em;
+    cursor: default;
+  }
+  .banner img {
+    vertical-align: middle;
+    height: 58px;
+  }
+  .banner .social {
+    float: right;
+    position: relative;
+    padding-right: 0.5em;
+  }
+  .banner .social a {
+    vertical-align: middle;
+    text-decoration: none;
+    margin: 0 0.4em;
+    display: inline-block;
+  }
+  .banner .social img {
+    height: 58px;
+    width: 22px;
+  }
+  .banner .social .linkedin img {
+    width: 20px;
+  }
+  .banner .social .twitter img {
+    width: 20px;
+    padding-left: 1px;
+  }
 
   a, a:visited {
     color: #b60061;
@@ -89,7 +136,7 @@
 <![endif]-->
 <!--[if lte IE 8]>
 <style type="text/css">
-  .logo {
+  h1 .logo {
     background: no-repeat url({{ media_url('images/logo-130.png') }});
   }
 </style>

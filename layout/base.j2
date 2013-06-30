@@ -27,10 +27,23 @@
 
   <header>
   {% block header %}
-    <center>
-      <span class="logo"></span>
-      <h1>Fl<span class="kern-ow">o</span>wers of the<br/> <span class="kern-He">H</span><span class="kern-es">e</span>sperid<span class="kern-es">e</span>s</h1>
-    </center>
+    <center><h1>
+      <span class="logo"></span><br/>
+      Fl<span class="kern-ow">o</span>wers of the<br/> <span class="kern-He">H</span><span class="kern-es">e</span>sperid<span class="kern-es">e</span>s
+    </h1></center>
+
+    <div class="banner-background">
+      <div class="banner">
+        <img src="{{ media_url('images/logo-w.svg') }}" alt="Logo"/>
+        <span class="social">
+          {% for link in social %}
+            <a href="{{ link.url }}" title="{{ link.name }}" class="{{ link.css_class }}">
+              <img src="{{ media_url(link.image) }}" alt="{{ link.name }}"/>
+            </a>
+          {% endfor %}
+        </span>
+      </div>
+    </div>
   {% endblock %}
 
   <nav>

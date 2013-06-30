@@ -12,6 +12,28 @@ plugins:
 
 context:
     data:
+        social:
+            -
+                name: Facebook
+                css_class: facebook
+                url: 'https://www.facebook.com/FlowersOfTheHesperides'
+                image: images/facebook-w.svg
+            -
+                name: Pinterest
+                css_class: pinterest
+                url: 'http://pinterest.com/hesperidesflora/flowers-of-the-hesperides/'
+                image: images/pinterest-w.svg
+            -
+                name: LinkedIn
+                css_class: linkedin
+                url: 'http://www.linkedin.com/company/3149117'
+                image: images/linkedin-w.svg
+            -
+                name: Twitter
+                css_class: twitter
+                url: 'https://twitter.com/HesperidesFlora'
+                image: images/twitter-w.svg
+
         menu:
             -
                 name: Home
