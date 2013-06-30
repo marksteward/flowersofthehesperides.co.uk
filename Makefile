@@ -5,7 +5,7 @@ verbose:
 	env/bin/python env/bin/hyde -v gen
 
 serve:
-	env/bin/python env/bin/hyde serve
+	env/bin/python env/bin/hyde serve -p 8080
 
 init:
 	virtualenv -p python2.7 env
