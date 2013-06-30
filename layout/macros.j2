@@ -1,0 +1,34 @@
+{% macro render_nav(menu) -%}
+{% if menu -%}
+<ul class="depth-0">
+    {% for item in menu recursive -%}
+    {% set active = False -%}
+    {% if item.type == 'page' -%}
+        {% set active = (resource.url ==
+            site.content.resource_from_relative_path(item.url).url) -%}
+    {% else -%}
+        {% set active = (node ==
+            site.content.node_from_relative_path(item.url)) -%}
+    {%- endif %}
+    {% set classes = [] -%}
+    {% do classes.append('active') if active -%}
+    {% do classes.append(item.css_class) if item.css_class -%}
+    <li>
+        {% if item.url %}
+        <a class="{{ classes|join(' ') }}"
+            href="{{ content_url(item.url) }}">
+            {{ item.name }}
+        </a>
+        {% else %}
+        {{ item.name }}
+        {% endif %}
+        {% if item.children -%}
+            <ul class="{{ 'depth-%d' % loop.depth }}">
+            {{ loop(item.children) }}
+            </ul>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{%- endif %}
+{%- endmacro %}

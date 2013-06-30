@@ -30,6 +30,11 @@
       <h1>Fl<span class="kern-ow">o</span>wers of the<br/> <span class="kern-He">H</span><span class="kern-es">e</span>sperid<span class="kern-es">e</span>s</h1>
     </center>
   {% endblock %}
+
+  <nav>
+  {% from "macros.j2" import render_nav with context %}
+  {{ render_nav(menu) }}
+  </nav>
   </header>
 
   <section class="content">
