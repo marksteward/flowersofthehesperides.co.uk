@@ -41,6 +41,42 @@
   a, a:visited {
     color: #b60061;
   }
+
+  nav {
+    margins: 0 auto;
+    margin-top: 80px;
+  }
+
+  nav ul {
+    list-style: none;
+    position: relative;
+  }
+
+  nav .active {
+    font-weight: bold;
+  }
+
+  .js nav ul li {
+    display: inline-block;
+  }
+
+  .js nav ul ul {
+    position: absolute;
+    background: white;
+  }
+
+  .js nav ul ul {
+    left: -1000em;
+  }
+
+  .js nav ul li:hover ul,
+  .js nav ul li.focused ul {
+    left: 0;
+  }
+
+  .content {
+    padding: 5ex 5em;
+  }
 </style>
 
 <!--[if lte IE 9]>
