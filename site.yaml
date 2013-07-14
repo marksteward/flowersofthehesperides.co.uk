@@ -94,6 +94,14 @@ context:
                 ttf: fonts/Hesperides.ttf
                 svg: fonts/Hesperides.svg
                 eot: fonts/Hesperides.eot
+            -
+                provider: custom
+                family: Bliss
+                fontname: Bliss-Light
+                ttf: fonts/BlissLig.ttf
+                svg: fonts/BlissLig.svg
+                eot: fonts/BlissLig.eot
+
 
 thumbnails:
     prefix: s
