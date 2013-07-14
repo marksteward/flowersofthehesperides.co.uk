@@ -10,6 +10,10 @@ plugins:
     - ext.plugins.images.FixedImageThumbnailsPlugin
     - hyde.ext.plugins.images.ImageSizerPlugin
 
+jinja2:
+    filters:
+        tojson: ext.templates.filters.Json.tojson
+
 context:
     data:
         social:
@@ -80,6 +84,16 @@ context:
                 type: page
                 url: about.html
 
+        webfonts:
+            webfontjs: js/webfont.js
+            fonts:
+            -
+                provider: custom
+                family: Hesperides
+                fontname: Hesperides-SemiBold
+                ttf: fonts/Hesperides.ttf
+                svg: fonts/Hesperides.svg
+                eot: fonts/Hesperides.eot
 
 thumbnails:
     prefix: s

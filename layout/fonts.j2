@@ -1,0 +1,62 @@
+{% macro css() %}
+
+{% set targetie = webfonts.fonts|selectattr('eot') %}
+{% if webfonts.fonts|selectattr('ttf') %}
+{% if targetie %}<!--[if !IE]><!-->{% endif %}
+<style type="text/css">
+{% for font in webfonts.fonts|selectattr('ttf') %}
+@font-face {
+  font-family: {{ font.family                 |tojson }};
+  font-style: {{ font.style|default('normal') |tojson }};
+  font-weight: {{ font.weight|default(400)    |tojson }};
+  src: local({{ font.family                   |tojson }}),
+       local({{ font.fontname                 |tojson }}),
+       url({{ (media_url(font.svg) + '#' + font.fontname) |tojson }}) format('svg'),
+       url({{ media_url(font.ttf)             |tojson }}) format('truetype');
+}
+{% endfor %}
+</style>
+{% if targetie %}<!--<![endif]-->{% endif %}
+{% endif %}
+
+{% if targetie %}
+<!--[if IE]>
+<style type="text/css">
+
+{% for font in webfonts.fonts|selectattr('eot') %}
+@font-face {
+  font-family: {{ font.family                 |tojson }};
+  font-style: {{ font.style|default('normal') |tojson }};
+  font-weight: {{ font.weight|default(400)    |tojson }};
+  src: url({{ media_url(font.eot)             |tojson }});
+}
+{% endfor %}
+</style>
+<![endif]-->
+{% endif %}
+
+{% endmacro %}
+
+
+{% macro js() %}
+
+<script type="text/javascript">
+{% set webfontconfig = {} %}
+{% for provider, fonts in webfonts.fonts|groupby('provider') %}
+  {% set families = [] %}
+  {% for font in fonts %}
+    {% set family = font.family + '::' + font.encoding if font.encoding else font.family %}
+    {% do families.append(family) %}
+  {% endfor %}
+  {% do webfontconfig.update({ provider: { 'families': families } }) %}
+{% endfor %}
+WebFontConfig = {{ webfontconfig|tojson }};
+</script>
+
+{% if webfonts.webfontjs %}
+<script type="text/javascript" src="{{ media_url(webfonts.webfontjs) }}"></script>
+{% else %}
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+{% endif %}
+
+{% endmacro %}
