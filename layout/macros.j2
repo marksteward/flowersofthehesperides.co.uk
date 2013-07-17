@@ -29,3 +29,12 @@
 </ul>
 {%- endif %}
 {%- endmacro %}
+
+{% macro render_social() -%}
+  {% for link in social %}
+    <a href="{{ link.url }}" title="{{ link.name }}" class="{{ link.css_class }}">
+      <img src="{{ media_url(link.image) }}" alt="{{ link.name }}"/>
+      <b>{{ link.glyph }}</b>
+    </a>
+  {% endfor %}
+{%- endmacro %}

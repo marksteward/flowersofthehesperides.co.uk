@@ -30,27 +30,27 @@
       Fl<span class="kern-ow">o</span>wers of the<br/> <span class="kern-He">H</span><span class="kern-es">e</span>sperid<span class="kern-es">e</span>s
     </h1></center>
 
+    <nav>
+    {% from "macros.j2" import render_nav, render_social with context %}
+    {{ render_nav(menu) }}
+    </nav>
+
+    <div class="social">
+         {{ render_social() }}
+    </div>
+    </header>
+
     <div class="banner-background">
       <div class="banner">
         <img src="{{ media_url('images/logo-w.svg') }}" alt="Logo"/>
         <span class="social">
-          {% for link in social %}
-            <a href="{{ link.url }}" title="{{ link.name }}" class="{{ link.css_class }}">
-              <img src="{{ media_url(link.image) }}" alt="{{ link.name }}"/>
-            </a>
-          {% endfor %}
+          {{ render_social() }}
         </span>
       </div>
     </div>
   {% endblock %}
 
-  <nav>
-  {% from "macros.j2" import render_nav with context %}
-  {{ render_nav(menu) }}
-  </nav>
-  </header>
-
-  <section class="content">
+ <section class="content">
   {% filter markdown|typogrify %}
   {% block main %}
   {% endblock main %}
