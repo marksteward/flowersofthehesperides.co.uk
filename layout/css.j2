@@ -6,27 +6,49 @@
     font-size: 15px;
     padding: 0;
   }
+  #index {
+    text-align: center
+  }
 
+  a {
+    text-decoration: none;
+  }
   h1 {
-    font: 49px Hesperides;
+    font: 26px Hesperides; /* Optimus Princeps SemiBold extract */
     color: #222;
     line-height: 1.23;
-    margin-top: 80px;
     white-space: nowrap;
-    display: none;
+    margin: 0;
+    padding: 1ex 0.5em;
+    display: inline-block;
   }
   #index h1 {
     display: block;
+    font-size: 49px;
+    margin-top: 80px;
+    margin-left: 70px;
+    background: #fff;
   }
   h1 .kern-ow { letter-spacing: -0.08em; }
   h1 .kern-He { letter-spacing: -0.03em; }
   h1 .kern-es { letter-spacing: -0.005em; }
   h1 .logo {
     background: url({{ media_url('images/logo.svg') }});
-    width: 130px;
-    height: 130px;
+    width: 80px;
+    height: 80px;
     display: inline-block;
     background-size: cover;
+    vertical-align: middle;
+  }
+  #index h1 .logo {
+    width: 130px;
+    height: 130px;
+  }
+  .logotext {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.3em;
+    text-align: center;
   }
   .wf-hesperides-n4-loading h1 {
     visibility: hidden;
@@ -40,20 +62,36 @@
   }
   .banner-background {
     background: url({{ media_url('images/delivery/2.jpg') }}) no-repeat center 58%;
+    background: rgba(255, 255, 255, 1);
     background-size: 100%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
+    transition: bottom 0.1s, top 0.1s;
+    box-shadow: 0 0 3px #222;
   }
-  #index .banner {
+  body {
+    margin: 0;
+    margin-bottom: 71px;
+  }
+  .js .banner-background {
+    top: -71px;
+    top: 0;
+  }
+  .js .banner-background.stuck {
+    top: 0;
+  }
+  #index nav {
     display: none;
   }
   .banner {
-    background-color: rgba(80, 80, 80, 0.7);
+    display: none;
+    background-color: rgba(40, 40, 40, 0.7);
     padding: 0.9ex 0.8em 0.9ex 0.8em;
     cursor: default;
+    text-align: left;
   }
   .banner img {
     vertical-align: middle;
@@ -66,13 +104,20 @@
   }
   .banner .social a {
     vertical-align: middle;
-    text-decoration: none;
     margin: 0 0.4em;
     display: inline-block;
   }
   .banner .social img {
     height: 58px;
     width: 22px;
+    display: none;
+  }
+  .banner .social b {
+    font-family: Social;
+    font-size: 22px;
+    color: #fff;
+    line-height: 58px;
+    margin-top: auto;
   }
   .banner .social .linkedin img {
     width: 20px;
@@ -82,18 +127,60 @@
     padding-left: 1px;
   }
 
+  header {
+    position: relative;
+  }
+
+  #index header .social {
+    float: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  #index header .social a {
+    margin: 0 0.4em;
+  }
+  header .social {
+    display: inline-block;
+    float: right;
+    padding: 1ex 1em;
+    margin-left: 15em;
+    font: 26px Hesperides;
+    padding-top: 0.8ex;
+    white-space: nowrap;
+    text-align: right;
+  }
+  header .social a {
+    margin: 0 0.2em;
+  }
+  header .social img {
+    display: none;
+  }
+  header .social b {
+    font-family: Social;
+    font-size: 28px;
+    color: #444;
+    line-height: 80px;
+    margin-top: auto;
+  }
+
   a, a:visited {
     color: #b60061;
   }
 
   nav {
-    margins: 0 auto;
-    margin-top: 80px;
+    display: inline-block;
+    font-weight: bold;
+    margin: 2.2em 13em 0 18em;
+    position: absolute;
+    left: 0; right: 0;
   }
-
   nav ul {
+    padding: 0;
     list-style: none;
-    position: relative;
+    font-size: 14pt;
+    margin: 0;
+    min-width: 23em;
   }
 
   nav .active {
@@ -102,15 +189,22 @@
 
   .js nav ul li {
     display: inline-block;
+    padding: 1ex 0;
+    margin-right: -2em;
+    margin-left: 15%;
+
   }
 
   .js nav ul ul {
     position: absolute;
     background: white;
+    width: 100%;
+    font-size: 12pt;
   }
 
   .js nav ul ul {
     left: -1000em;
+    padding-top: 3ex;
   }
 
   .js nav ul li:hover ul,
@@ -118,8 +212,12 @@
     left: 0;
   }
 
+  #index .content {
+    padding: 0 70px 70px 70px;
+  }
   .content {
-    padding: 5ex 5em;
+    padding: 70px;
+    white-space: nowrap;
   }
 </style>
 
