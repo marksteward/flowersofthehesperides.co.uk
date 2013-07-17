@@ -98,9 +98,19 @@ context:
                 provider: custom
                 family: Bliss
                 fontname: Bliss-Light
+                weight: 200
                 ttf: fonts/BlissLig.ttf
                 svg: fonts/BlissLig.svg
                 eot: fonts/BlissLig.eot
+            -
+                provider: custom
+                family: Bliss
+                fontname: Bliss-Regular
+                weight: 400
+                ttf: fonts/BlissReg.ttf
+                svg: fonts/BlissReg.svg
+                eot: fonts/BlissReg.eot
+
 
 
 thumbnails:
