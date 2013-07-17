@@ -65,6 +65,19 @@
   {% endblock content %}
 
   {% block js %}
+  <script type="text/javascript" src="{{ media_url('js/jquery-1.10.1.min.js') }}"></script>
+  {#
+  <script type="text/javascript" src="{{ media_url('js/waypoints.min.js') }}"></script>
+  <script type="text/javascript" src="{{ media_url('js/waypoints-sticky.min.js') }}"></script>
+  #}
+  <script type="text/javascript">
+    $(function() {
+      //$('.banner-background').waypoint('sticky');
+      //$('body').attr('scrollTop', $('.banner-background').offset().top);
+      $('html').addClass('js');
+      //$('h1').show();
+    });
+  </script>
   {% endblock js %}
 </body>
 </html>
