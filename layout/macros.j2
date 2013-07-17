@@ -14,19 +14,16 @@
     {% do classes.append('active') if active -%}
     {% do classes.append(item.css_class) if item.css_class -%}
     <li>
-        {% if item.url %}
-        <a class="{{ classes|join(' ') }}"
-            href="{{ content_url(item.url) }}">
-            {{ item.name }}
-        </a>
-        {% else %}
+        {%- if item.url -%}
+        <a class="{{ classes|join(' ') }}" href="{{ content_url(item.url) }}">{{ item.name }}</a>
+        {%- else -%}
         {{ item.name }}
-        {% endif %}
+        {% endif -%}
         {% if item.children -%}
             <ul class="{{ 'depth-%d' % loop.depth }}">
-            {{ loop(item.children) }}
+            {{ loop(item.children) -}}
             </ul>
-        {% endif %}
+        {%- endif -%}
     </li>
     {% endfor %}
 </ul>

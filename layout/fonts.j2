@@ -42,12 +42,12 @@
 
 <script type="text/javascript">
 {% set webfontconfig = {} %}
-{% for provider, fonts in webfonts.fonts|groupby('provider') %}
-  {% set families = [] %}
-  {% for font in fonts %}
-    {% set family = font.family + '::' + font.encoding if font.encoding else font.family %}
-    {% do families.append(family) %}
-  {% endfor %}
+{% for provider, fonts in webfonts.fonts|groupby('provider') -%}
+  {% set families = [] -%}
+  {% for font in fonts -%}
+    {% set family = font.family + '::' + font.encoding if font.encoding else font.family -%}
+    {% do families.append(family) if family not in families -%}
+  {% endfor -%}
   {% do webfontconfig.update({ provider: { 'families': families } }) %}
 {% endfor %}
 WebFontConfig = {{ webfontconfig|tojson }};
